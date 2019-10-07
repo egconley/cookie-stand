@@ -12,6 +12,7 @@ var downtownShop = {
   max: 25,
   avgCookiesPerCustVisit: 2,
   cookiesPurchased: [],
+  totCookiesSold: [0],
   locationName: 'Pike Place Market',
   randoNumberGen: function(min, max) {
     var min = Math.ceil(min);
@@ -22,8 +23,9 @@ var downtownShop = {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
       this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
-      this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit)
-      childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
+      this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
+      this.totCookiesSold.push(this.totCookiesSold[i]+this.cookiesPurchased[i]);
+      childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]} ~ Total: ${this.totCookiesSold[i]}`;
       parentEl.appendChild(childEl);
     }
   }
@@ -47,10 +49,10 @@ var greenwoodShop = {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
       this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
-      this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit)
+      this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
       childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
       parentEl.appendChild(childEl);
     }
-  }
+  },
 }
 greenwoodShop.render();
