@@ -1,12 +1,18 @@
 var parentEl = document.getElementById('parentElement');
-parentEl.textContent = 'attempting to contact html';
+// parentEl.textContent = 'attempting to contact html';
 
 var child = document.createElement('h1');
 child.textContent = 'Salmon Cookies';
 parentEl.appendChild(child);
 
+var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
+
+function randoNumberGen(min, max) {
+  return Math.floor(Math.random() * (max-min)) + min;
+}
+
 var seattle = {
-  shopHours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  shopHours: hours,
   hourCustomerVisits: [],
   min: 23,
   max: 65,
@@ -14,11 +20,6 @@ var seattle = {
   cookiesPurchased: [],
   totCookiesSold: [0],
   locationName: 'Seattle',
-  randoNumberGen: function(min, max) {
-    var min = Math.ceil(min);
-    var max = Math.floor(max);
-    return Math.floor(Math.random() * (max-min)) + min;
-  },
   displayStoreName: function() {
     var childEl0 = document.createElement('h2');
     childEl0.textContent = `${this.locationName}`;
@@ -27,7 +28,7 @@ var seattle = {
   render: function() {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
-      this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
+      this.hourCustomerVisits.push(randoNumberGen(this.min, this.max));
       this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
       this.totCookiesSold.push(this.totCookiesSold[i]+this.cookiesPurchased[i]);
       childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
@@ -47,7 +48,7 @@ seattle.totalSold();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var tokyo = {
-  shopHours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  shopHours: hours,
   hourCustomerVisits: [],
   min: 3,
   max: 24,
@@ -55,11 +56,6 @@ var tokyo = {
   cookiesPurchased: [],
   totCookiesSold: [0],
   locationName: 'Tokyo',
-  randoNumberGen: function(min, max) {
-    var min = Math.ceil(min);
-    var max = Math.floor(max);
-    return Math.floor(Math.random() * (max-min)) + min;
-  },
   displayStoreName: function() {
     var childEl0 = document.createElement('h2');
     childEl0.textContent = `${this.locationName}`;
@@ -68,7 +64,7 @@ var tokyo = {
   render: function() {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
-      this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
+      this.hourCustomerVisits.push(randoNumberGen(this.min, this.max));
       this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
       this.totCookiesSold.push(this.totCookiesSold[i]+this.cookiesPurchased[i]);
       childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
@@ -88,7 +84,7 @@ tokyo.totalSold();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var dubai = {
-  shopHours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  shopHours: hours,
   hourCustomerVisits: [],
   min: 11,
   max: 38,
@@ -96,11 +92,6 @@ var dubai = {
   cookiesPurchased: [],
   totCookiesSold: [0],
   locationName: 'Dubai',
-  randoNumberGen: function(min, max) {
-    var min = Math.ceil(min);
-    var max = Math.floor(max);
-    return Math.floor(Math.random() * (max-min)) + min;
-  },
   displayStoreName: function() {
     var childEl0 = document.createElement('h2');
     childEl0.textContent = `${this.locationName}`;
@@ -109,7 +100,7 @@ var dubai = {
   render: function() {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
-      this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
+      this.hourCustomerVisits.push(randoNumberGen(this.min, this.max));
       this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
       this.totCookiesSold.push(this.totCookiesSold[i]+this.cookiesPurchased[i]);
       childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
@@ -129,7 +120,7 @@ dubai.totalSold();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var paris = {
-  shopHours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  shopHours: hours,
   hourCustomerVisits: [],
   min: 20,
   max: 38,
@@ -137,11 +128,6 @@ var paris = {
   cookiesPurchased: [],
   totCookiesSold: [0],
   locationName: 'Paris',
-  randoNumberGen: function(min, max) {
-    var min = Math.ceil(min);
-    var max = Math.floor(max);
-    return Math.floor(Math.random() * (max-min)) + min;
-  },
   displayStoreName: function() {
     var childEl0 = document.createElement('h2');
     childEl0.textContent = `${this.locationName}`;
@@ -150,7 +136,7 @@ var paris = {
   render: function() {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
-      this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
+      this.hourCustomerVisits.push(randoNumberGen(this.min, this.max));
       this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
       this.totCookiesSold.push(this.totCookiesSold[i]+this.cookiesPurchased[i]);
       childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
@@ -170,7 +156,7 @@ paris.totalSold();
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 var lima = {
-  shopHours: ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'],
+  shopHours: hours,
   hourCustomerVisits: [],
   min: 2,
   max: 16,
@@ -178,11 +164,6 @@ var lima = {
   cookiesPurchased: [],
   totCookiesSold: [0],
   locationName: 'Lima',
-  randoNumberGen: function(min, max) {
-    var min = Math.ceil(min);
-    var max = Math.floor(max);
-    return Math.floor(Math.random() * (max-min)) + min;
-  },
   displayStoreName: function() {
     var childEl0 = document.createElement('h2');
     childEl0.textContent = `${this.locationName}`;
@@ -191,7 +172,7 @@ var lima = {
   render: function() {
     for (var i = 0; i < this.shopHours.length; i++) {
       var childEl = document.createElement('li');
-      this.hourCustomerVisits.push(this.randoNumberGen(this.min, this.max));
+      this.hourCustomerVisits.push(randoNumberGen(this.min, this.max));
       this.cookiesPurchased.push(this.hourCustomerVisits[i]*this.avgCookiesPerCustVisit);
       this.totCookiesSold.push(this.totCookiesSold[i]+this.cookiesPurchased[i]);
       childEl.textContent = `Shop Hours: ${this.shopHours[i]} ~ Total Customers: ${this.hourCustomerVisits[i]} ~ Cookies Purchased: ${this.cookiesPurchased[i]}`;
