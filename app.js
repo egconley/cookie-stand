@@ -103,11 +103,11 @@ var footer = function() {
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
 
-  for (var i=0; i < hours.length; i++) {
+  for (var i=0; i < (hours.length); i++) {
     var allStoresHourlyTotal = 0;
     var td = document.createElement('td');
 
-    for (var j=0; j < allStores.length; j++) {
+    for (var j=0; j < (allStores.length); j++) {
       allStoresHourlyTotal += allStores[j].cookiesEachHour[i];
     }
     td.textContent = allStoresHourlyTotal;
