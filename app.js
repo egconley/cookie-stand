@@ -51,6 +51,29 @@ Store.prototype.genHourlyCookieVolume = function() {
   console.log(this);
 }
 
+//Populate the top left cell of the table with "Location"
+var tableDataEl = document.getElementById('tableData');
+var trEl = document.createElement('tr');
+var tdEl = document.createElement('td');
+tdEl.textContent = 'Location';
+trEl.appendChild(tdEl);
+tableDataEl.appendChild(trEl);
+
+//Populate the top row with store hours
+for (var i =0; i < hours.length; i++) {
+  tdEl = document.createElement('td');
+  tdEl.textContent = hours[i];
+  trEl.appendChild(tdEl);
+  tableDataEl.appendChild(trEl);
+}
+
+var tableDataEl = document.getElementById('tableData');
+var tdEl = document.createElement('td');
+tdEl.textContent = 'Total';
+trEl.appendChild(tdEl);
+tableDataEl.appendChild(trEl);
+
+//make a table row for each intantiation of Store with hourly cookie totals and the daily total
 Store.prototype.render = function() {
   //1. create an element
   var trEl = document.createElement('tr');
@@ -70,7 +93,26 @@ Store.prototype.render = function() {
   tdEl.textContent = this.totalCookiesForTheDay;
   trEl.appendChild(tdEl);
   // append the whole row (store name, hourly cookie totals, and daily cookie total) to the table element in index.html.
-  var tableDataEl = document.getElementById('tableData');
+  tableDataEl.appendChild(trEl);
+}
+
+// make footer row.
+var footer = function() {
+  var trEl = document.createElement('tr');
+  var tdEl = document.createElement('td');
+  tdEl.textContent = 'Total';
+  trEl.appendChild(tdEl);
+
+  for (var i=0; i < hours.length; i++) {
+    var allStoresHourlyTotal = 0;
+    var td = document.createElement('td');
+
+    for (var j=0; j < allStores.length; j++) {
+      allStoresHourlyTotal += allStores[j].cookiesEachHour[i];
+    }
+    td.textContent = allStoresHourlyTotal;
+    trEl.appendChild(td);
+  }
   tableDataEl.appendChild(trEl);
 }
 
@@ -79,6 +121,8 @@ for (var i=0; i < allStores.length; i++) {
   allStores[i].genHourlyCookieVolume();
   allStores[i].render();
 }
+
+footer();
 
 
 // function randoNumberGen(min, max) {
