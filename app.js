@@ -1,9 +1,7 @@
-var parentEl = document.getElementById('parentElement');
-// parentEl.textContent = 'attempting to contact html';
+'use strict';
 
-var child = document.createElement('h1');
-child.textContent = 'Salmon Cookies';
-parentEl.appendChild(child);
+var parentEl = document.getElementById('parentElement');
+parentEl.textContent = 'Salmon Cookies';
 
 var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
@@ -11,6 +9,7 @@ function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min)) + min;
 }
 
+// array that store all instantiation of the Store constructor
 var allStores = [];
 
 function Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies) {
@@ -24,6 +23,8 @@ function Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies) {
   allStores.push(this);
 }
 
+//Note: prototypes will only work on an instantiation of the constructor.
+
 var seattle = new Store('Seattle', 23, 65, 6.3);
 var tokyo = new Store('Tokyo', 3, 24, 1.2);
 var dubai = new Store('Dubai', 11, 38, 3.7);
@@ -32,7 +33,7 @@ var lima = new Store('Lima', 2, 16, 4.6);
 
 //Fills customerEachHour with random data
 Store.prototype.genHourlyCustVolume = function() {
-  for( var i = 0; i < hours.length; i++ ) {
+  for (var i = 0; i < hours.length; i++) {
     //creating a random number for each hour
     var customers = randomNumber(this.minHourlyCust, this.maxHourlyCust);
     //push the random customers into the customersEachHour array
@@ -41,16 +42,7 @@ Store.prototype.genHourlyCustVolume = function() {
   console.log(this);
 }
 
-
-// seattle.genHourlyCustVolume()
-// tokyo.genHourlyCustVolume()
-// dubai.genHourlyCustVolume()
-// paris.genHourlyCustVolume()
-// lima.genHourlyCustVolume()
-
-
 Store.prototype.genHourlyCookieVolume = function() {
-  this.genHourlyCustVolume();
   for (var i = 0; i < hours.length; i++) {
     var cookiesForOneHour = Math.ceil(this.customersEachHour[i] * this.avgCustCookies);
     this.cookiesEachHour.push(cookiesForOneHour);
@@ -60,27 +52,27 @@ Store.prototype.genHourlyCookieVolume = function() {
 }
 
 Store.prototype.render = function() {
-  for( var i = 0; i < hours.length; i++ ) {
-    //1. create an element
-    var tdEl = document.createElement('td');
-    //2. add content
-    tdEl.textContent = `${hours[i]}`;
-    //append to the DOM; generateCookiesEachHour
-    storeHours.appendChild(tdEl);
-  }
-  for ( var i = 0; i < hours.length; i++ ) {
-    //1. create an element
-    var tdEl = document.createElement('td');
-    //2. add content
-    tdEl.textContent = `${this.cookiesEachHour[i]}`;
-    //append to the DOM; generateCookiesEachHour
-    hourlyCookies.appendChild(tdEl);
-  }
+  //1. create an element
+  var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
-  tdEl.textContent = `Daily Total: ${this.totalCookiesForTheDay}`;
-  tdEl.appendChild(tdEl);
+  //2. add content
+  tdEl.textContent = this.storeName;
+  //append to the DOM; generateCookiesEachHour
+  trEl.appendChild(tdEl);
+  //loop over cookiesEachHour array to populate the table row left to right
+  for (var i =0; i < this.cookiesEachHour.length; i++) {
+    tdEl = document.createElement('td');
+    tdEl.textContent = this.cookiesEachHour[i];
+    trEl.appendChild(tdEl);
+  }
+  // add the total cookies for the day at the far right
+  var tdEl = document.createElement('td');
+  tdEl.textContent = this.totalCookiesForTheDay;
+  trEl.appendChild(tdEl);
+  // append the whole row (store name, hourly cookie totals, and daily cookie total) to the table element in index.html.
+  var tableDataEl = document.getElementById('tableData');
+  tableDataEl.appendChild(trEl);
 }
-
 
 for (var i=0; i < allStores.length; i++) {
   allStores[i].genHourlyCustVolume();
@@ -88,7 +80,6 @@ for (var i=0; i < allStores.length; i++) {
   allStores[i].render();
 }
 
-// var hours = ['6am', '7am', '8am', '9am', '10am', '11am', '12pm', '1pm', '2pm', '3pm', '4pm', '5pm', '6pm', '7pm', '8pm'];
 
 // function randoNumberGen(min, max) {
 //   return Math.floor(Math.random() * (max-min)) + min;
