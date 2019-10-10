@@ -35,30 +35,24 @@ var lima = new Store('Lima', 2, 16, 4.6);
 var userForm = document.getElementById('user-form');
 userForm.addEventListener('submit', handlesubmit);
 
-function sayHello() {
-  console.log('Hello from the console.');
-}
+// function sayHello() {
+//   console.log('Hello from the console.');
+// }
+
+var newStore = null;
+
 function handlesubmit(event) {
   event.preventDefault();
-  console.log('hey look: ');
-  sayHello();
+  // console.log('hey look: ');
+  // sayHello();
   // var myName = event.target.inputEl.value;
   // console.log(myName);
 
   var storeName = event.target.storeNameInputEl.value;
-  console.log(storeName);
-
   var minHourlyCust = Number(event.target.minHourlyCustInputEl.value);
-  console.log(minHourlyCust);
-
   var maxHourlyCust = Number(event.target.maxHourlyCustInputEl.value);
-  console.log(maxHourlyCust);
-
   var avgCustCookies = Number(event.target.avgCustCookiesInputEl.value);
-  console.log(avgCustCookies);
-
-  var newStore = new Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies);
-  console.log(newStore);
+  newStore = new Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies);
 
   newStore.genHourlyCustVolume();
   newStore.genHourlyCookieVolume();
@@ -74,7 +68,7 @@ Store.prototype.genHourlyCustVolume = function() {
     //push the random customers into the customersEachHour array
     this.customersEachHour.push(customers);
   }
-  console.log(this);
+  // console.log(this);
 }
 
 Store.prototype.genHourlyCookieVolume = function() {
@@ -83,7 +77,7 @@ Store.prototype.genHourlyCookieVolume = function() {
     this.cookiesEachHour.push(cookiesForOneHour);
     this.totalCookiesForTheDay += cookiesForOneHour;
   }
-  console.log(this);
+  // console.log(this);
 }
 
 //Populate the top left cell of the table with "Location"
@@ -131,6 +125,12 @@ Store.prototype.render = function() {
   tableDataEl.appendChild(trEl);
 }
 
+for (var i=0; i < allStores.length; i++) {
+  allStores[i].genHourlyCustVolume();
+  allStores[i].genHourlyCookieVolume();
+  allStores[i].render();
+}
+
 // make footer row.
 var footer = function() {
   var trEl = document.createElement('tr');
@@ -148,16 +148,14 @@ var footer = function() {
     td.textContent = allStoresHourlyTotal;
     trEl.appendChild(td);
   }
-  tableDataEl.appendChild(trEl);
+  if (newStore === null) {
+    tableDataEl.appendChild(trEl);
+  }
 }
 
-for (var i=0; i < allStores.length; i++) {
-  allStores[i].genHourlyCustVolume();
-  allStores[i].genHourlyCookieVolume();
-  allStores[i].render();
+if (newStore === null) {
+  footer();
 }
-
-footer();
 
 
 // function randoNumberGen(min, max) {
