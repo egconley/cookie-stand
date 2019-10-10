@@ -31,6 +31,21 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
+//Lab 08 - Forms
+var userForm = document.getElementById('user-form');
+userForm.addEventListener('submit', handlesubmit);
+
+function sayHello() {
+  console.log('hello from the console.');
+}
+function handlesubmit(event) {
+  event.preventDefault();
+  sayHello();
+  console.log('hey look: ');
+  var myName = event.target.inputEl.value;
+  console.log(myName);
+}
+
 //Fills customerEachHour with random data
 Store.prototype.genHourlyCustVolume = function() {
   for (var i = 0; i < hours.length; i++) {
