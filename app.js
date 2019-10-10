@@ -31,6 +31,41 @@ var dubai = new Store('Dubai', 11, 38, 3.7);
 var paris = new Store('Paris', 20, 38, 2.3);
 var lima = new Store('Lima', 2, 16, 4.6);
 
+//Lab 08 - Forms
+var userForm = document.getElementById('user-form');
+userForm.addEventListener('submit', handlesubmit);
+
+function sayHello() {
+  console.log('Hello from the console.');
+}
+function handlesubmit(event) {
+  event.preventDefault();
+  console.log('hey look: ');
+  sayHello();
+  // var myName = event.target.inputEl.value;
+  // console.log(myName);
+
+  var storeName = event.target.storeNameInputEl.value;
+  console.log(storeName);
+
+  var minHourlyCust = Number(event.target.minHourlyCustInputEl.value);
+  console.log(minHourlyCust);
+
+  var maxHourlyCust = Number(event.target.maxHourlyCustInputEl.value);
+  console.log(maxHourlyCust);
+
+  var avgCustCookies = Number(event.target.avgCustCookiesInputEl.value);
+  console.log(avgCustCookies);
+
+  var newStore = new Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies);
+  console.log(newStore);
+
+  newStore.genHourlyCustVolume();
+  newStore.genHourlyCookieVolume();
+  newStore.render();
+  footer();
+}
+
 //Fills customerEachHour with random data
 Store.prototype.genHourlyCustVolume = function() {
   for (var i = 0; i < hours.length; i++) {
@@ -103,11 +138,11 @@ var footer = function() {
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
 
-  for (var i=0; i < hours.length; i++) {
+  for (var i=0; i < (hours.length); i++) {
     var allStoresHourlyTotal = 0;
     var td = document.createElement('td');
 
-    for (var j=0; j < allStores.length; j++) {
+    for (var j=0; j < (allStores.length); j++) {
       allStoresHourlyTotal += allStores[j].cookiesEachHour[i];
     }
     td.textContent = allStoresHourlyTotal;
