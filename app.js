@@ -44,6 +44,18 @@ function handlesubmit(event) {
   console.log('hey look: ');
   var myName = event.target.inputEl.value;
   console.log(myName);
+
+  var newStoreName = event.target.storeNameInputEl.value;
+  console.log(newStoreName);
+
+  var newMinHourlyCust = event.target.minHourlyCustInputEl.value;
+  console.log(newMinHourlyCust);
+
+  var maxHourlyCust = event.target.maxHourlyCustInputEl.value;
+  console.log(maxHourlyCust);
+
+  var avgCustCookies = event.target.avgCustCookiesInputEl.value;
+  console.log(avgCustCookies);
 }
 
 //Fills customerEachHour with random data
