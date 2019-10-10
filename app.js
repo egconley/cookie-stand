@@ -63,6 +63,7 @@ function handlesubmit(event) {
   newStore.genHourlyCustVolume();
   newStore.genHourlyCookieVolume();
   newStore.render();
+  footer();
 }
 
 //Fills customerEachHour with random data
