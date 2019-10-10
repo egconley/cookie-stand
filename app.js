@@ -44,6 +44,8 @@ function handlesubmit(event) {
   // sayHello();
   // var myName = event.target.inputEl.value;
   // console.log(myName);
+  //to remove the previosu footer row:
+  tableDataEl.deleteRow(-1);
 
   var storeName = event.target.storeNameInputEl.value;
   var minHourlyCust = Number(event.target.minHourlyCustInputEl.value);
@@ -149,7 +151,6 @@ for (var i=0; i < allStores.length; i++) {
 }
 
 footer();
-
 
 // function randoNumberGen(min, max) {
 //   return Math.floor(Math.random() * (max-min)) + min;
