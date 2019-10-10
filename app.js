@@ -45,8 +45,8 @@ function handlesubmit(event) {
   // var myName = event.target.inputEl.value;
   // console.log(myName);
 
-  var newStoreName = event.target.storeNameInputEl.value;
-  console.log(newStoreName);
+  var storeName = event.target.storeNameInputEl.value;
+  console.log(storeName);
 
   var minHourlyCust = Number(event.target.minHourlyCustInputEl.value);
   console.log(minHourlyCust);
@@ -57,7 +57,7 @@ function handlesubmit(event) {
   var avgCustCookies = Number(event.target.avgCustCookiesInputEl.value);
   console.log(avgCustCookies);
 
-  var newStore = new Store(newStoreName, minHourlyCust, maxHourlyCust, avgCustCookies);
+  var newStore = new Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies);
   console.log(newStore);
 
   newStore.genHourlyCustVolume();
