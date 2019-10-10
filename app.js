@@ -36,26 +36,33 @@ var userForm = document.getElementById('user-form');
 userForm.addEventListener('submit', handlesubmit);
 
 function sayHello() {
-  console.log('hello from the console.');
+  console.log('Hello from the console.');
 }
 function handlesubmit(event) {
   event.preventDefault();
-  sayHello();
   console.log('hey look: ');
-  var myName = event.target.inputEl.value;
-  console.log(myName);
+  sayHello();
+  // var myName = event.target.inputEl.value;
+  // console.log(myName);
 
   var newStoreName = event.target.storeNameInputEl.value;
   console.log(newStoreName);
 
-  var newMinHourlyCust = event.target.minHourlyCustInputEl.value;
-  console.log(newMinHourlyCust);
+  var minHourlyCust = Number(event.target.minHourlyCustInputEl.value);
+  console.log(minHourlyCust);
 
-  var maxHourlyCust = event.target.maxHourlyCustInputEl.value;
+  var maxHourlyCust = Number(event.target.maxHourlyCustInputEl.value);
   console.log(maxHourlyCust);
 
-  var avgCustCookies = event.target.avgCustCookiesInputEl.value;
+  var avgCustCookies = Number(event.target.avgCustCookiesInputEl.value);
   console.log(avgCustCookies);
+
+  var newStore = new Store(newStoreName, minHourlyCust, maxHourlyCust, avgCustCookies);
+  console.log(newStore);
+
+  newStore.genHourlyCustVolume();
+  newStore.genHourlyCookieVolume();
+  newStore.render();
 }
 
 //Fills customerEachHour with random data
