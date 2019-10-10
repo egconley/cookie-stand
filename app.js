@@ -44,7 +44,7 @@ function handlesubmit(event) {
   // sayHello();
   // var myName = event.target.inputEl.value;
   // console.log(myName);
-  //to remove the previosu footer row:
+  //to remove the previous footer row:
   tableDataEl.deleteRow(-1);
 
   var storeName = event.target.storeNameInputEl.value;
