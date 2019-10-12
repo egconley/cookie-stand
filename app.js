@@ -60,7 +60,7 @@ function handlesubmit(event) {
 }
 
 //Fills customerEachHour with random data
-Store.prototype.genHourlyCustVolume = function() {
+Store.prototype.genHourlyCustVolume = function () {
   for (var i = 0; i < hours.length; i++) {
     //creating a random number for each hour
     var customers = randomNumber(this.minHourlyCust, this.maxHourlyCust);
@@ -70,7 +70,7 @@ Store.prototype.genHourlyCustVolume = function() {
   // console.log(this);
 };
 
-Store.prototype.genHourlyCookieVolume = function() {
+Store.prototype.genHourlyCookieVolume = function () {
   for (var i = 0; i < hours.length; i++) {
     var cookiesForOneHour = Math.ceil(this.customersEachHour[i] * this.avgCustCookies);
     this.cookiesEachHour.push(cookiesForOneHour);
@@ -81,28 +81,31 @@ Store.prototype.genHourlyCookieVolume = function() {
 
 //Populate the top left cell of the table with "Location"
 var tableDataEl = document.getElementById('tableData');
-var trEl = document.createElement('tr');
-var thEl = document.createElement('th');
-thEl.textContent = 'Location';
-trEl.appendChild(thEl);
-tableDataEl.appendChild(trEl);
+function makeHeaderRow() {
+  var trEl = document.createElement('tr');
+  var thEl = document.createElement('th');
+  thEl.textContent = 'Location';
+  trEl.appendChild(thEl);
+  tableDataEl.appendChild(trEl);
 
-//Populate the top row with store hours
-for (var i =0; i < hours.length; i++) {
+  //Populate the top row with store hours
+  for (var i = 0; i < hours.length; i++) {
+    thEl = document.createElement('th');
+    thEl.textContent = hours[i];
+    trEl.appendChild(thEl);
+    tableDataEl.appendChild(trEl);
+  }
+
+  tableDataEl = document.getElementById('tableData');
   thEl = document.createElement('th');
-  thEl.textContent = hours[i];
+  thEl.textContent = 'Total';
   trEl.appendChild(thEl);
   tableDataEl.appendChild(trEl);
 }
-
-tableDataEl = document.getElementById('tableData');
-thEl = document.createElement('th');
-thEl.textContent = 'Total';
-trEl.appendChild(thEl);
-tableDataEl.appendChild(trEl);
+makeHeaderRow();
 
 //make a table row for each intantiation of Store with hourly cookie totals and the daily total
-Store.prototype.render = function() {
+Store.prototype.render = function () {
   //1. create an element
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
@@ -111,7 +114,7 @@ Store.prototype.render = function() {
   //append to the DOM; generateCookiesEachHour
   trEl.appendChild(tdEl);
   //loop over cookiesEachHour array to populate the table row left to right
-  for (var i =0; i < this.cookiesEachHour.length; i++) {
+  for (var i = 0; i < this.cookiesEachHour.length; i++) {
     tdEl = document.createElement('td');
     tdEl.textContent = this.cookiesEachHour[i];
     trEl.appendChild(tdEl);
@@ -125,17 +128,17 @@ Store.prototype.render = function() {
 };
 
 // make footer row.
-var footer = function() {
+var footer = function () {
   var trEl = document.createElement('tr');
   var tdEl = document.createElement('td');
   tdEl.textContent = 'Total';
   trEl.appendChild(tdEl);
 
-  for (var i=0; i < (hours.length); i++) {
+  for (var i = 0; i < (hours.length); i++) {
     var allStoresHourlyTotal = 0;
     var td = document.createElement('td');
 
-    for (var j=0; j < (allStores.length); j++) {
+    for (var j = 0; j < (allStores.length); j++) {
       allStoresHourlyTotal += allStores[j].cookiesEachHour[i];
     }
     td.textContent = allStoresHourlyTotal;
@@ -144,7 +147,7 @@ var footer = function() {
   tableDataEl.appendChild(trEl);
 };
 
-for (i=0; i < allStores.length; i++) {
+for (var i = 0; i < allStores.length; i++) {
   allStores[i].genHourlyCustVolume();
   allStores[i].genHourlyCookieVolume();
   allStores[i].render();
