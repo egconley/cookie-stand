@@ -68,7 +68,7 @@ Store.prototype.genHourlyCustVolume = function() {
     this.customersEachHour.push(customers);
   }
   // console.log(this);
-}
+};
 
 Store.prototype.genHourlyCookieVolume = function() {
   for (var i = 0; i < hours.length; i++) {
@@ -77,7 +77,7 @@ Store.prototype.genHourlyCookieVolume = function() {
     this.totalCookiesForTheDay += cookiesForOneHour;
   }
   // console.log(this);
-}
+};
 
 //Populate the top left cell of the table with "Location"
 var tableDataEl = document.getElementById('tableData');
@@ -95,10 +95,10 @@ for (var i =0; i < hours.length; i++) {
   tableDataEl.appendChild(trEl);
 }
 
-var tableDataEl = document.getElementById('tableData');
-var tdEl = document.createElement('td');
-tdEl.textContent = 'Total';
-trEl.appendChild(tdEl);
+tableDataEl = document.getElementById('tableData');
+thEl = document.createElement('th');
+thEl.textContent = 'Total';
+trEl.appendChild(thEl);
 tableDataEl.appendChild(trEl);
 
 //make a table row for each intantiation of Store with hourly cookie totals and the daily total
@@ -117,12 +117,12 @@ Store.prototype.render = function() {
     trEl.appendChild(tdEl);
   }
   // add the total cookies for the day at the far right
-  var tdEl = document.createElement('td');
+  tdEl = document.createElement('td');
   tdEl.textContent = this.totalCookiesForTheDay;
   trEl.appendChild(tdEl);
   // append the whole row (store name, hourly cookie totals, and daily cookie total) to the table element in index.html.
   tableDataEl.appendChild(trEl);
-}
+};
 
 // make footer row.
 var footer = function() {
@@ -142,9 +142,9 @@ var footer = function() {
     trEl.appendChild(td);
   }
   tableDataEl.appendChild(trEl);
-}
+};
 
-for (var i=0; i < allStores.length; i++) {
+for (i=0; i < allStores.length; i++) {
   allStores[i].genHourlyCustVolume();
   allStores[i].genHourlyCookieVolume();
   allStores[i].render();
