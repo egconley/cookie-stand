@@ -1,44 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="stylesheet" href="style.css">
-  <link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope|Crafty+Girls|Delius|Gloria+Hallelujah|Gochi+Hand|Handlee|Liu+Jian+Mao+Cao|Muli|Nanum+Brush+Script|Nothing+You+Could+Do|Open+Sans+Condensed:300|Patrick+Hand|Patrick+Hand+SC|Poppins|Reenie+Beanie|Sue+Ellen+Francisco&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Gloria+Hallelujah|Martel|Open+Sans+Condensed:300&display=swap"
+    rel="stylesheet">
   <title>Store Sales</title>
 </head>
+
 <body>
   <h1 id="parentElement"></h1>
   <a href="index.html">Home</a>
-  <table id="tableData"></table>
-  <form id="user-form">
-    <fieldset>
-      <!-- <label>Enter blah:</label>
-      <input id="inputEl" type="text" placeholder="enter blah">
-      <button value="submit">Submit</button>
-      <br> -->
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem debitis sapiente quis sequi? Numquam rerum mollitia
+    repellendus labore ea, commodi eum fugiat distinctio nobis accusantium dicta, voluptates consectetur error corporis.
+  </p>
+  <h2>Cookie Sales</h2>
+    <table id="tableData"></table>
+    <form id="user-form">
+      <fieldset>
+        <h3>Submit Sales Data</h2>
+        <label>Store name:</label>
+        <input id="storeNameInputEl" type="text" placeholder="enter store name...">
+        <br>
+        <label>Min hourly customers:</label>
+        <input id="minHourlyCustInputEl" type="number" placeholder="enter min hourly customers...">
+        <br>
+        <label>Max hourly customers:</label>
+        <input id="maxHourlyCustInputEl" type="number" placeholder="enter max hourly customers...">
+        <br>
+        <label>Avg cookies per customer:</label>
+        <input id="avgCustCookiesInputEl" type="number" placeholder="enter average cookies purchases per customer...">
+        <br>
+        <button value="submit">Submit</button>
+      </fieldset>
+    </form>
 
-      <label>Store name:</label>
-      <input id="storeNameInputEl" type="text" placeholder="enter store name...">
-      <br>
-
-      <label>Min hourly customers:</label>
-      <input id="minHourlyCustInputEl" type="number" placeholder="enter minimum hourly customers...">
-      <br>
-
-      <label>Max hourly customers:</label>
-      <input id="maxHourlyCustInputEl" type="number" placeholder="enter minimum hourly customers...">
-      <br>
-
-      <label>Avg cookies per customer:</label>
-      <input id="avgCustCookiesInputEl" type="number" placeholder="enter average cookies purchase per customer...">
-      <br>
-
-      <button value="submit">Submit Store Stats</button>
-
-    </fieldset>
-  </form>
+  <img src="assets/salmon.png" alt="">
   <script src="app.js"></script>
 </body>
+
 </html>
