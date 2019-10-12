@@ -82,16 +82,16 @@ Store.prototype.genHourlyCookieVolume = function() {
 //Populate the top left cell of the table with "Location"
 var tableDataEl = document.getElementById('tableData');
 var trEl = document.createElement('tr');
-var tdEl = document.createElement('td');
-tdEl.textContent = 'Location';
-trEl.appendChild(tdEl);
+var thEl = document.createElement('th');
+thEl.textContent = 'Location';
+trEl.appendChild(thEl);
 tableDataEl.appendChild(trEl);
 
 //Populate the top row with store hours
 for (var i =0; i < hours.length; i++) {
-  tdEl = document.createElement('td');
-  tdEl.textContent = hours[i];
-  trEl.appendChild(tdEl);
+  thEl = document.createElement('th');
+  thEl.textContent = hours[i];
+  trEl.appendChild(thEl);
   tableDataEl.appendChild(trEl);
 }
 
