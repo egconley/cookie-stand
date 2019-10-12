@@ -25,11 +25,11 @@ function Store(storeName, minHourlyCust, maxHourlyCust, avgCustCookies) {
 
 //Note: prototypes will only work on an instantiation of the constructor.
 
-var seattle = new Store('Seattle', 23, 65, 6.3);
-var tokyo = new Store('Tokyo', 3, 24, 1.2);
-var dubai = new Store('Dubai', 11, 38, 3.7);
-var paris = new Store('Paris', 20, 38, 2.3);
-var lima = new Store('Lima', 2, 16, 4.6);
+new Store('Seattle', 23, 65, 6.3);
+new Store('Tokyo', 3, 24, 1.2);
+new Store('Dubai', 11, 38, 3.7);
+new Store('Paris', 20, 38, 2.3);
+new Store('Lima', 2, 16, 4.6);
 
 //Lab 08 - Forms
 var userForm = document.getElementById('user-form');
