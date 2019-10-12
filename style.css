@@ -1,0 +1,29 @@
+
+h1 {
+  /* font-family: 'Liu Jian Mao Cao', cursive; */
+  /* font-family: 'Reenie Beanie', cursive; */
+  font-family: 'Gloria Hallelujah', cursive;
+}
+
+body {
+  background-color: #fff;
+}
+
+/* Table Styling */
+#tableData {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/* Form Styling */
+fieldset {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+/* Fonts */
+/* 
+font-family: 'Liu Jian Mao Cao', cursive;
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Gloria Hallelujah', cursive;
+font-family: 'Reenie Beanie', cursive;
+font-family: 'Nanum Brush Script', cursive;
+*/
