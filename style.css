@@ -1,0 +1,130 @@
+/* TO DO; */
+
+/* Specified different font colors for all three font usages */
+/* A background color for the default page background (make sure font colors have good contrast and are readable on this background) */
+/* A different background color for elements such boxes and tables (so make sure the font colors contrast against this well, too!) */
+/* Anything else you’d like to add related to style. But remember: simplicity, clarity, and consistency are good things in design. */
+/* Be thoughtful about layout and overall organization of the page. */
+/* /* Include all of the typical stuff that you’ll find on the home page of a business: locations, hours, contact information, some text about how awesome the business is, etc. Be creative, and again, think about what is meaningful to a typical end user. */
+
+/* border-bottom: 1px solid #EBEBEB !important;
+border-top: 1px solid #EBEBEB !important; */
+
+section {
+  /* border-bottom: 1px solid #EBEBEB !important; */
+  border-top: 1px solid #EBEBEB !important;
+}
+
+body {
+  background-color: #fff;
+  width: 960px;
+}
+
+header>* {
+  display: inline-block;
+  font-family: 'Gloria Hallelujah', cursive;
+  color: #2A3132;
+}
+
+h2 {
+  margin-right: 10px;
+}
+
+nav {
+  margin-left: 10px;
+}
+
+h2, h3, th {
+  color: #2A3132;
+}
+
+p {
+  font-family: 'Martel', serif;
+  color: #484848;
+}
+
+p, label {
+  color: #484848;
+}
+
+h2, h3, #tableData, table, fieldset, a {
+  font-family: 'Open Sans Condensed', sans-serif;
+}
+
+table {
+  text-align: left;
+}
+
+fieldset {
+  display: block;
+  margin-inline-start: 2px;
+  margin-inline-end: 2px;
+  padding-block-start: 0.3em;
+  padding-inline-start: 0.75em;
+  padding-inline-end: 0.75em;
+  padding-block-end: 0.625em;
+  min-inline-size: min-content;
+  border-width: 0px;
+}
+
+fieldset>h3 {
+  display: block;
+    font-size: 19.2px;
+    margin-block-start: 0em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    font-weight: bold;
+}
+td {
+  color: #767676;
+}
+
+fieldset>button {
+  margin-top: 1.5em;
+}
+
+/* th {
+  border-bottom: 1px solid #C05805;
+} */
+
+.bold {
+  font-weight: bold;
+}
+
+.total {
+  color: #C05805;
+}
+
+/* COLORS 
+Shadow #2A3132
+Autumn Foliage #763626
+
+Crevice #46211A
+Cloud Shadow #693D3D
+
+Bronze #C05805
+*/
+
+table {
+  float: left;
+  width: 500px;
+  font-size: 120%;
+}
+
+form {
+  float: right;
+  width: 300px;
+}
+
+input {
+  float: right;
+}
+
+/* Fonts */
+/* 
+font-family: 'Open Sans Condensed', sans-serif;
+font-family: 'Gloria Hallelujah', cursive;
+
+font-family: 'Martel', serif;
+*/
