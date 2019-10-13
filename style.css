@@ -16,6 +16,14 @@ h1 {
   font-family: 'Gloria Hallelujah', cursive;
 }
 
+header>* {
+  display: inline-block;
+}
+
+h2 {
+  margin-right: 10px;
+}
+
 p {
   font-family: 'Martel', serif;
 }
