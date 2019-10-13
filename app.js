@@ -117,9 +117,10 @@ Store.prototype.render = function () {
     trEl.appendChild(tdEl);
   }
   // add the total cookies for the day at the far right
-  tdEl = document.createElement('td');
-  tdEl.textContent = this.totalCookiesForTheDay;
-  trEl.appendChild(tdEl);
+  var tdTot = document.createElement('td');
+  tdTot.className='total';
+  tdTot.textContent = this.totalCookiesForTheDay;
+  trEl.appendChild(tdTot);
   // append the whole row (store name, hourly cookie totals, and daily cookie total) to the table element in index.html.
   tableDataEl.appendChild(trEl);
 };
@@ -127,19 +128,21 @@ Store.prototype.render = function () {
 // make footer row.
 var footer = function () {
   var trEl = document.createElement('tr');
-  var tdEl = document.createElement('td');
-  tdEl.textContent = 'Total';
-  trEl.appendChild(tdEl);
+  var boldEl = document.createElement('td');
+  boldEl.textContent = 'Total';
+  boldEl.className='bold';
+  trEl.appendChild(boldEl);
 
   for (var i = 0; i < (hours.length); i++) {
     var allStoresHourlyTotal = 0;
-    var td = document.createElement('td');
+    var tdTot = document.createElement('td');
+    tdTot.className='total';
 
     for (var j = 0; j < (allStores.length); j++) {
       allStoresHourlyTotal += allStores[j].cookiesEachHour[i];
     }
-    td.textContent = allStoresHourlyTotal;
-    trEl.appendChild(td);
+    tdTot.textContent = allStoresHourlyTotal;
+    trEl.appendChild(tdTot);
   }
   tableDataEl.appendChild(trEl);
 };
