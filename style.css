@@ -7,7 +7,13 @@
 /* Be thoughtful about layout and overall organization of the page. */
 /* /* Include all of the typical stuff that you’ll find on the home page of a business: locations, hours, contact information, some text about how awesome the business is, etc. Be creative, and again, think about what is meaningful to a typical end user. */
 
+/* border-bottom: 1px solid #EBEBEB !important;
+border-top: 1px solid #EBEBEB !important; */
 
+section {
+  /* border-bottom: 1px solid #EBEBEB !important; */
+  border-top: 1px solid #EBEBEB !important;
+}
 
 body {
   background-color: #fff;
@@ -24,6 +30,10 @@ h2 {
   margin-right: 10px;
 }
 
+nav {
+  margin-left: 10px;
+}
+
 h2, h3, th {
   color: #2A3132;
 }
@@ -37,8 +47,12 @@ p, label {
   color: #484848;
 }
 
-h2, #tableData, fieldset, a {
+h2, h3, #tableData, table, fieldset, a {
   font-family: 'Open Sans Condensed', sans-serif;
+}
+
+table {
+  text-align: left;
 }
 
 fieldset {
@@ -70,9 +84,9 @@ fieldset>button {
   margin-top: 1.5em;
 }
 
-th {
+/* th {
   border-bottom: 1px solid #C05805;
-}
+} */
 
 .bold {
   font-weight: bold;

@@ -11,39 +11,44 @@
   <title>Store Sales</title>
 </head>
 <header>
-    <h2>><(((*></h2>
-    <h1>Salmon Cookies</h1> 
+  <h2>><(((*>
+  </h2>
+  <h1>Salmon Cookies</h1>
+  <nav>
+      <a href="index.html">Home</a>
+      <a href="sales.html">Data</a>
+    </nav>
 </header>
-<nav>
-  <a href="index.html">Home</a>
-  <a href="sales.html">Data</a>
-</nav>
+
 <body>
-  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem debitis sapiente quis sequi? Numquam rerum mollitia
-    repellendus labore ea, commodi eum fugiat distinctio nobis accusantium dicta, voluptates consectetur error corporis.
-  </p>
-  <h2 id="h2Date">Live Sales by Store Location</h2>
+  <section>
+    <h2>Salmon Cookie Data</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem debitis sapiente quis sequi? Numquam rerum mollitia repellendus labore ea, commodi eum fugiat distinctio nobis accusantium dicta, voluptates consectetur error corporis.
+    </p>
+  </section>
+  <img src="assets/salmon.png" alt="">
+  <section>
+    <h2>Live Sales by Store Location</h2>
     <table id="tableData"></table>
     <form id="user-form">
       <fieldset>
         <h3>Submit Sales Data</h2>
-        <label>Store name:</label>
-        <input id="storeNameInputEl" type="text" placeholder="...">
-        <br>
-        <label>Min hourly customers:</label>
-        <input id="minHourlyCustInputEl" type="number" placeholder="(•‿•) ...">
-        <br>
-        <label>Max hourly customers:</label>
-        <input id="maxHourlyCustInputEl" type="number" placeholder="(•‿•) ...">
-        <br>
-        <label>Avg cookies per customer:</label>
-        <input id="avgCustCookiesInputEl" type="number" placeholder="><(((*> ...">
-        <br>
-        <button value="submit">Submit</button>
+          <label>Store name:</label>
+          <input id="storeNameInputEl" type="text" placeholder="...">
+          <br>
+          <label>Min hourly customers:</label>
+          <input id="minHourlyCustInputEl" type="number" placeholder="(•‿•) ...">
+          <br>
+          <label>Max hourly customers:</label>
+          <input id="maxHourlyCustInputEl" type="number" placeholder="(•‿•) ...">
+          <br>
+          <label>Avg cookies per customer:</label>
+          <input id="avgCustCookiesInputEl" type="number" placeholder="><(((*> ...">
+          <br>
+          <button value="submit">Submit</button>
       </fieldset>
     </form>
-
-  <img src="assets/salmon.png" alt="">
+  </section>
   <script src="app.js"></script>
 </body>
 
